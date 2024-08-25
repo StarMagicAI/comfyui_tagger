@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-tagger"
+description = "Nodes to use Florence2 VLM for image vision tasks: object detection, captioning, segmentation and ocr"
+version = "1.0.0"
+license = "MIT"
+dependencies = ["transformers>=4.38.0"]
+
+[project.urls]
+Repository = "https://github.com/StarMagicAI/comfyui_tagger"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "jsonL"
+DisplayName = "ComfyUI-tagger"
+Icon = ""
