@@ -533,7 +533,7 @@ class Florence2Run:
         
         return (out_tensor, out_mask_tensor, out_results, out_data)
 
-class Florence2Run_save:
+class Batch_text_save:
     def __init__(self):
         pass
 
@@ -541,9 +541,9 @@ class Florence2Run_save:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "text": ("STRING", {"forceInput": True}),
+                "text": ("STRING",{"forceInput": True}),
                 "path": ("STRING", {"default": './ComfyUI/output/[time(%Y-%m-%d)]', "multiline": False}),
-
+                "insert_text": ("STRING",{"forceInput": True})
             }
         }
 
@@ -552,7 +552,7 @@ class Florence2Run_save:
     FUNCTION = "save_text_file"
     CATEGORY = "file"
 
-    def save_text_file(self, text, path):
+    def save_text_file(self, text, path, insert_text):
         
         if not os.path.exists(path):
             print(f"The path `{path}` doesn't exist! Creating it...").warning.print()
@@ -565,10 +565,13 @@ class Florence2Run_save:
         image_name_list = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
         listText = text
         for index in range(len(listText)):
-            text = listText[index]
+            if insert_text:
+                text = insert_text +","+ listText[index]
+            else:
+                text = listText[index]    
             file_extension = '.txt'
             fileName = str(image_name_list[index]).replace(".png","").replace(".jpg","").replace(".jpeg","")
-            # 获取path下所有文件名  
+            
             file_path = os.path.join(path, fileName+file_extension)
 
             self.writeTextFile(file_path, text)
@@ -581,18 +584,20 @@ class Florence2Run_save:
                 f.write(content)
         except OSError:
             print(f"Unable to save file `{file}`").error.print()   
-          
+   
+  
 NODE_CLASS_MAPPINGS = {
     "DownloadAndLoadFlorence2Model_jsonL": DownloadAndLoadFlorence2Model,
     "DownloadAndLoadFlorence2Lora_jsonL": DownloadAndLoadFlorence2Lora,
     "Florence2ModelLoader_jsonL": Florence2ModelLoader,
     "Florence2Run_jsonL": Florence2Run,
-    "Florence2Run_save_file_jsonL":Florence2Run_save
+    "batch_text_save_jsonL":Batch_text_save,
 }
+
 NODE_DISPLAY_NAME_MAPPINGS = {
     "DownloadAndLoadFlorence2Model_jsonL": "DownloadAndLoadFlorence2Model_jsonL",
     "DownloadAndLoadFlorence2Lora_jsonL": "DownloadAndLoadFlorence2Lora_jsonL",
     "Florence2ModelLoader_jsonL": "Florence2ModelLoader_jsonL",
     "Florence2Run_jsonL": "Florence2Run_jsonL",
-    "Florence2Run_save_file_jsonL": "Florence2Run_save_file_jsonL",
+    "batch_save_file_jsonL": "batch_text_save_jsonL",
 }
