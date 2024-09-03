@@ -1,195 +1,20 @@
 {
-  "last_node_id": 37,
-  "last_link_id": 36,
+  "last_node_id": 48,
+  "last_link_id": 47,
   "nodes": [
-    {
-      "id": 3,
-      "type": "DownloadAndLoadFlorence2Model",
-      "pos": [
-        318,
-        89
-      ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "lora",
-          "type": "PEFTLORA",
-          "link": null,
-          "label": "lora"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "florence2_model",
-          "type": "FL2MODEL",
-          "links": [
-            2
-          ],
-          "shape": 3,
-          "label": "florence2_model"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DownloadAndLoadFlorence2Model",
-        "ttNbgOverride": {
-          "color": "#c09430",
-          "groupcolor": "#b58b2a"
-        }
-      },
-      "widgets_values": [
-        "microsoft/Florence-2-base",
-        "fp16",
-        "sdpa"
-      ],
-      "color": "#c09430"
-    },
-    {
-      "id": 1,
-      "type": "Florence2Run",
-      "pos": [
-        683,
-        240
-      ],
-      "size": {
-        "0": 274.36590576171875,
-        "1": 304
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 18,
-          "slot_index": 0,
-          "label": "image"
-        },
-        {
-          "name": "florence2_model",
-          "type": "FL2MODEL",
-          "link": 2,
-          "label": "florence2_model"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "image"
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null,
-          "shape": 3,
-          "label": "mask"
-        },
-        {
-          "name": "caption",
-          "type": "STRING",
-          "links": [
-            32
-          ],
-          "slot_index": 2,
-          "shape": 3,
-          "label": "caption"
-        },
-        {
-          "name": "data",
-          "type": "JSON",
-          "links": [],
-          "slot_index": 3,
-          "shape": 3,
-          "label": "data"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Florence2Run",
-        "ttNbgOverride": {
-          "color": "#c09430",
-          "groupcolor": "#b58b2a"
-        }
-      },
-      "widgets_values": [
-        "",
-        "more_detailed_caption",
-        false,
-        false,
-        1024,
-        3,
-        false,
-        ""
-      ],
-      "color": "#c09430"
-    },
-    {
-      "id": 34,
-      "type": "Florence2Run_save_file_jsonL",
-      "pos": [
-        1101,
-        276
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 32,
-          "widget": {
-            "name": "text"
-          }
-        },
-        {
-          "name": "path",
-          "type": "STRING",
-          "link": 36,
-          "widget": {
-            "name": "path"
-          }
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Florence2Run_save_file_jsonL",
-        "ttNbgOverride": {
-          "color": "#c09430",
-          "groupcolor": "#b58b2a"
-        }
-      },
-      "widgets_values": [
-        "",
-        "./ComfyUI/output/[time(%Y-%m-%d)]"
-      ],
-      "color": "#c09430"
-    },
     {
       "id": 15,
       "type": "LoadImagesFromDir //Inspire",
       "pos": [
-        243,
-        257
+        318,
+        228
       ],
-      "size": [
-        315,
-        170
-      ],
+      "size": {
+        "0": 315,
+        "1": 170
+      },
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
@@ -240,11 +65,240 @@
       "color": "#c09430"
     },
     {
+      "id": 1,
+      "type": "Florence2Run",
+      "pos": [
+        683,
+        240
+      ],
+      "size": {
+        "0": 274.36590576171875,
+        "1": 304
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 18,
+          "slot_index": 0,
+          "label": "image"
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 2,
+          "label": "florence2_model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "image"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "mask"
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            38,
+            44
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "caption"
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": [],
+          "slot_index": 3,
+          "shape": 3,
+          "label": "data"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run",
+        "ttNbgOverride": {
+          "color": "#c09430",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "",
+        "more_detailed_caption",
+        false,
+        false,
+        1024,
+        3,
+        false,
+        ""
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 43,
+      "type": "batch_text_save_jsonL",
+      "pos": [
+        1440,
+        294
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 44,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "insert_text",
+          "type": "STRING",
+          "link": 45,
+          "widget": {
+            "name": "insert_text"
+          }
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": 46,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "batch_text_save_jsonL",
+        "ttNbgOverride": {
+          "color": "#c09430",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "",
+        "./ComfyUI/output/[time(%Y-%m-%d)]",
+        ""
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 40,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1059,
+        293
+      ],
+      "size": {
+        "0": 343.59295654296875,
+        "1": 240.60519409179688
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 38,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss",
+        "ttNbgOverride": {
+          "color": "#c09430",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "The image shows a man standing in front of a large building with a clock tower in the background. The building appears to be a hotel or a casino, as there are several other tall buildings visible in the distance. The man is wearing a black jacket, pants, and sneakers, and is standing on a tiled walkway with red flowers in the foreground. The sky is dark, and the overall mood of the image is peaceful and serene.,The image shows a young man standing on a wooden boardwalk at night. He is wearing a black t-shirt with a graphic design on it and glasses. He has a serious expression on his face and is looking directly at the camera. Behind him, there are several tall buildings with colorful lights and signs. The sky is dark and the overall mood of the image is vibrant and lively.,The image shows a man standing in front of a large building at night. The building appears to be a hotel or a casino, with a tall tower with a clock on top. The tower is lit up with colorful lights, and there are several other tall buildings in the background. The sky is dark, and the ground is covered in red flowers. The man is wearing a black jacket, pants, and sneakers, and is standing on a tiled walkway.,The image shows a man standing in front of a tall building with a clock tower in the background. The building appears to be a skyscraper or a tall tower with multiple levels and a clock on top. The man is wearing a black jacket, black pants, and white sneakers. He is standing on a tiled floor with a red rope barrier in the foreground. The sky is dark and there are other buildings and skyscrapers visible in the distance. On the right side of the image, there is a large screen displaying a colorful display.,The image shows a man standing in the middle of a busy street at night. He is wearing a black jacket, black pants, and white sneakers. The street is lined with tall buildings on both sides, and there are colorful neon signs and advertisements on the buildings. The sky is dark, and the street is lit up with street lamps. There are a few people walking on the sidewalk, and a few cars parked on the side of the road. The overall atmosphere of the image is bustling and bustling.,The image shows a man standing in front of a large building with a clock tower in the background. The building appears to be a hotel or a casino, as there are several other tall buildings visible in the distance. The man is wearing a black jacket, jeans, and sneakers, and is standing on a tiled walkway. He is looking at the camera with a serious expression on his face.\n\nIn front of the building, there is a large red flower bed with red flowers. The flower bed is surrounded by a white pedestal with a statue of a bird on top. The sky is dark, and the overall mood of the image is somber.,The image shows a young man standing on a wooden boardwalk at night. He is wearing a black jacket, black pants, and white sneakers. He has a pair of glasses on and is smiling at the camera. Behind him, there is a large building with colorful lights and a red sign. The building appears to be a hotel or a restaurant. The sky is dark and there are other buildings and skyscrapers visible in the background. The boardwalk is lined with blue railings and there is traffic on the road.,The image shows a man standing on a wooden boardwalk at night. He is wearing a black jacket, pants, and white sneakers. He has a pair of glasses on and is smiling at the camera. Behind him, there is a large building with a golden facade and a bridge over a busy street. The street is lined with shops and restaurants, and there are people walking on the sidewalk. The sky is dark and the moon is visible in the top right corner of the image.,The image shows a young man standing on a wooden boardwalk at night. He is wearing a black jacket and glasses and is holding a phone in his left hand. He has a serious expression on his face and is looking directly at the camera. In the background, there are several tall buildings with colorful lights, creating a vibrant and lively atmosphere. The sky is dark and the overall mood of the image is one of excitement and anticipation.,The image shows a young man standing in front of a tall clock tower in a city at night. The clock tower is white with gold accents and has Chinese characters written on it. The man is wearing a black jacket and glasses and is holding a phone in his hand. He is standing on a set of stairs with a red rope barrier around them. In the background, there are other tall buildings and skyscrapers. The sky is dark, indicating that it is nighttime.,The image shows a man standing in the middle of a busy street at night. He is wearing a black jacket, black pants, and white sneakers. The street is lined with tall buildings on both sides, and there are street lamps on the right side of the image. In the background, there are several colorful buildings with neon signs and advertisements. The sky is dark, indicating that it is nighttime. People can be seen walking around the street, and some are carrying shopping bags. The overall atmosphere is bustling and bustling.,The image shows a young man standing on a wooden boardwalk at night. He is wearing a black jacket, black pants, and white sneakers. He has his hands in his pockets and is looking directly at the camera. Behind him, there is a large building with a colorful facade and a red and yellow sign. The building is lit up with bright lights, creating a vibrant and lively atmosphere. In the background, there are other buildings and skyscrapers, and a mountain can be seen in the distance. The sky is dark, indicating that it is nighttime.,The image shows a man standing in front of a tall building with a unique architectural design. The building appears to be a modern skyscraper with multiple levels and is lit up with colorful lights. The man is wearing a black jacket, beige pants, and white sneakers. He is standing on a concrete floor and is looking at the camera with a serious expression.\n\nIn the background, there are other tall buildings and skyscrapers, all of which are lit up in different colors - red, orange, and blue. The sky is dark, indicating that it is nighttime. The overall mood of the image is vibrant and lively."
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 3,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        677,
+        65
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "label": "lora"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "label": "florence2_model"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model",
+        "ttNbgOverride": {
+          "color": "#c09430",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "microsoft/Florence-2-base",
+        "fp16",
+        "sdpa"
+      ],
+      "color": "#c09430"
+    },
+    {
       "id": 37,
       "type": "String",
       "pos": [
-        346,
-        -22
+        306,
+        112
       ],
       "size": {
         "0": 315,
@@ -259,10 +313,10 @@
           "type": "STRING",
           "links": [
             35,
-            36
+            46
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "shape": 3
         }
       ],
       "title": "directory",
@@ -274,7 +328,44 @@
         }
       },
       "widgets_values": [
-        "C:\\Users\\Administrator\\Desktop\\黑神话悟空"
+        "C:\\Users\\Administrator\\Desktop\\新建文件夹"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 44,
+      "type": "String",
+      "pos": [
+        1071,
+        169
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            45
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "trigger",
+      "properties": {
+        "Node name for S&R": "String",
+        "ttNbgOverride": {
+          "color": "#c09430",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        ""
       ],
       "color": "#c09430"
     }
@@ -297,14 +388,6 @@
       "IMAGE"
     ],
     [
-      32,
-      1,
-      2,
-      34,
-      0,
-      "STRING"
-    ],
-    [
       35,
       37,
       0,
@@ -313,11 +396,35 @@
       "STRING"
     ],
     [
-      36,
+      38,
+      1,
+      2,
+      40,
+      0,
+      "STRING"
+    ],
+    [
+      44,
+      1,
+      2,
+      43,
+      0,
+      "STRING"
+    ],
+    [
+      45,
+      44,
+      0,
+      43,
+      1,
+      "STRING"
+    ],
+    [
+      46,
       37,
       0,
-      34,
-      1,
+      43,
+      2,
       "STRING"
     ]
   ],
@@ -325,10 +432,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0610764609500007,
+      "scale": 0.7247295000000009,
       "offset": [
-        133.8031307036971,
-        171.79214440112548
+        -124.55317249923996,
+        217.12026802567294
       ]
     }
   },
